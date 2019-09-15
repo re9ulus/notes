@@ -11,7 +11,7 @@ std::vector<int> data(n);
 std::iota(data.begin(), data.end(), 0);
 ```
 
-Пояилось в C++11 [link](https://en.cppreference.com/w/cpp/algorithm/iota<Paste>).
+Пояилось в C++11 [link](https://en.cppreference.com/w/cpp/algorithm/iota).
 
 
 ### Копирование части вектора
