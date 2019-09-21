@@ -1,13 +1,17 @@
 # Как готовить gdb
 
+#### Удобный дизассемблер
+```
+objdump -drwC a.out
+```
 
-Запустить
+#### Запустить
 ```
 gdb ./a.out
 run
 ```
 
-Ключевые команды
+#### Ключевые команды
 ```
 bt              ; backtrace стек вызовов
 info registers
@@ -29,14 +33,14 @@ si              ; step instruction, следующая инструкция с �
 ni              ; next instruction, без захода
 ```
 
-Time-travel debugging
+#### Time-travel debugging
 ```
 record
 rstep
 rnext
 ```
 
-Полезное
+#### Полезное
 ```
 Включить дополнительный интерфейс: ctrl+x a
 ```
@@ -44,7 +48,7 @@ rnext
 TODO: Написать более подробно про time-travel debugging
 
 
-Полезные плагины:
+#### Полезные плагины:
 
 Python Exploit Assistance for GDB [git](https://github.com/longld/peda)
 
@@ -56,6 +60,6 @@ echo "set disassembly-flavor att" >> ~/.gdbinit
 echo "DONE! debug your program with gdb and enjoy"
 ```
 
-Ссылки:
+#### Ссылки:
 
 - Великолепное видео: [Give me 15 minutes & I'll change your view of GDB](https://www.youtube.com/watch?v=PorfLSr3DDI&t)
