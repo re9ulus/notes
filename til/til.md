@@ -35,3 +35,4 @@ bool CustomCMP(const MyType& lhs, const MyType& rhs) {
            std::tie(rhs.field2, rhs.field1, rhs.field3);
 }
 ```
+[link](https://en.cppreference.com/w/cpp/utility/tuple/tie)
