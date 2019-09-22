@@ -1,3 +1,5 @@
+На данный момент заметки по мотивам книжки `Concurrency programming in c++ in action`.
+
 ### Hello world
 
 ```
@@ -51,4 +53,83 @@ my_thread.detach();
 Или ожидать завершения
 ```
 my_thread.join();  // можно вызвать только 1 раз. Проверить можно через joinable(); 
+```
+
+### Использование RAII
+
+С момента запуска потока могут произойти непредвиденные ситуации. Например исключение или ошибка, из-за которой ресурс используемый в дочернем потоке станет недоступен или подвиснет. Одним из способов решения проблемы является `RAII`.
+```
+class Guard P
+    std::thread t;
+public:
+    explicit Guard(std::thread t_) : t(std::move(t_)) {}
+    ~Guard() {
+        if (t.joinable()) {
+            t.join();
+        }
+    }
+    Guard(const ThreadGuard&) = delete;
+    Guard& operator=(const ThreadGuard&) = delete;
+};
+
+{
+    int local_state = 42;
+    Guard(std::thread(functor(local_state)));  // Гарантированно будет вызван дестркутор
+    // some other code
+}
+```
+
+### Передача аргументов
+
+Аргументы передаются в качестве дополнительных аргументов в `std::thread`. По умолчанию они _копируются_ в память нового потока, *даже в том случае, когда функция ожидает ссылку*. Нужно быть осторожным, есть вероятность получить неожиданные спецэффекты.
+```
+void SomeFunction(std::string& str);
+
+char buffer[256];
+// Передали указатель char*, который будет приведен к строке
+// Есть вероятность что буфер будет уничтожен до преобразования в std::string и все взорвется
+std::thread t(SomeFunction, buffer);
+// Правильно
+std::thread t(SomeFunction, std::string(buffer));
+```
+
+Если хотим получить ссылку нужно использовать `std::ref`.
+```
+Data data;
+// Будет передана ссылка на data
+std::thread(Func, std::ref(data));
+```
+
+Можно передать функцию-член, нужно первым объектом передать указатель на объект класса
+```
+class X {
+public:
+    void DoWork();
+};
+
+X x_obj;
+std::thread t(&X::DoWork, &x_obj);
+```
+
+Отдельную осторожность необходимо проявлять с перемещающими конструкторами и операторами присваивания.
+
+#### Передача владения потоком
+
+Потоки являются перемещаемыми, но некопируемыми.
+```
+std::thread t1(SomeFunction);
+std::thread t2 = std::move(t1);
+t1 = std::thead(SomeOtherFunction);
+t1 = std::move(t2);  // Ошибка, т.к. с t1 уже связан другой поток
+```
+
+Потоки можно передавать/возвращать из функций и хранить в коллекциях поддерживающих перемещение.
+```
+std::thread GoThread() {
+    return std::thread(SomeFunc);
+}
+
+void AcceptThread(std::thread t) {}  // ! По значению
+std::thread t(SomeFunc);
+AcceptThread(std::move(t));
 ```
