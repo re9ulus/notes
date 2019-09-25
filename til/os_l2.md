@@ -2,20 +2,27 @@
 
 ### x86
 
-- Годный слайд с названиями регистров
-
-### Move
-
 ```
-;eax = 3
+EAX - Accumulator
+EXC - Counter
+EDX - Data
+EBX - Base
+ESI - Source Index
+EDI - Destination Index
+EBP - Base Pointer
+ESP - Stack Pointer
+```
+
+Move
+```
+; eax = 3
 MOV EAX, 3
-```
 
-```
 ; eax = ebx
 MOV EAX, EBX
 ```
 
+Add
 ```
 ; eax += 5
 ADD EAX, 5
@@ -24,14 +31,17 @@ ADD EAX, 5
 ADD EAX, EBX
 ```
 
-Intel: ADD Destination
+Substraction
+```
+; eax -= 7
+SUB EAX, 7
 
-```
-SUB
+; eax -= ebx
+SUB EAX, EBX
 ```
 
-```
 Shift Left
+```
 ; eax <<= 2
 ; eax *= (1 << 2)
 SHL EAX, 2
