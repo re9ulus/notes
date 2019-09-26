@@ -44,5 +44,5 @@ g; / g, - Cycle through :changes
 ```
 
 
-Links:
-Great talk: [https://www.youtube.com/watch?v=E-ZbrtoSuzw](Talk on going mouseless with Vim, Tmux, and Hotkeys)
+#### Links
+Great talk: [Talk on going mouseless with Vim, Tmux, and Hotkeys](https://www.youtube.com/watch?v=E-ZbrtoSuzw)
