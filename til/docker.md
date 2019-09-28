@@ -68,10 +68,36 @@ docker container exec -it  ; run command in existing container
 ```
 
 ### Docker Networks
-Check open ports
 ```
-docker container port <container>
+docker container port <container>  ; check open ports
 ```
+
+### Managing networks
+```
+docker network ls               ; show networks
+docker network inspect          ; details about network
+docker network create --driver  ; create network
+docker network connect          ; attach network to container
+docker network disconnect       ; detach network from container
+```
+
+Default network: `bridge`
+
+Example create network and attach container
+```
+docker network create my_app_net
+docker run -d --name new_nginx --network my_app_net nginx
+```
+
+### DNS
+
+Если мы используем сеть отличную от `bridge`, можем не заботиться об DNS и обращаться к контейнерам по имени.
+```
+docker container exec -it my_container_1 ping my_container_2
+```
+
+В `bridge` сети можно использовать `--link`. Но проще просто создать  новую сеть.
+
 
 ### Resources
 
