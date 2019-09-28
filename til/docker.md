@@ -39,7 +39,7 @@ Workflow
 ```
 docker container run --publish 80:80 --detach --name webhost nginx  ; run nginx
 docker container ls  ; list running containers
-docker cotnainer stop $containerid  ; stop container
+docker cotnainer stop <container>  ; stop container
 docker container ls -a ; list all containers
 ```
 
@@ -51,7 +51,7 @@ docker container top webhost   ;
 
 Remove container
 ```
-docker container rm -f $containerid
+docker container rm -f <container>
 ```
 
 ### Wat's going on in container
@@ -59,6 +59,18 @@ docker container rm -f $containerid
 docker container top  ; process list
 docker container inspect  ; details of container config
 docker container stats  ; live performance stats
+```
+
+### Getting inside container
+```
+docker container run -it  ; start new container interactively
+docker container exec -it  ; run command in existing container
+```
+
+### Docker Networks
+Check open ports
+```
+docker container port <container>
 ```
 
 ### Resources
