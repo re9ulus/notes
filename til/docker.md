@@ -98,6 +98,18 @@ docker container exec -it my_container_1 ping my_container_2
 
 В `bridge` сети можно использовать `--link`. Но проще просто создать  новую сеть.
 
+### Images
+
+```
+docker image ls          ; list images
+docker pull <image:tag>  ; download image
+
+docker history <image:tag>  ; get history of changes in the image
+```
+
+```
+docker image build -t <name:tag> .
+```
 
 ### Resources
 
