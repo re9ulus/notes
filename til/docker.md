@@ -111,6 +111,11 @@ docker history <image:tag>  ; get history of changes in the image
 docker image build -t <name:tag> .
 ```
 
+```
+docker image prune -a  ; remove all unused images
+docker system prune    ; clean everything
+```
+
 ### Resources
 
 [Docker mastery](https://www.udemy.com/course/docker-mastery/)
