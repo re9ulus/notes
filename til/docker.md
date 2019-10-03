@@ -45,7 +45,7 @@ docker container ls -a ; list all containers
 
 Commands
 ```
-docker container logs webhost  ; get lastest logs
+docker container logs -f webhost  ; get lastest logs
 docker container top webhost   ;
 ```
 
@@ -107,13 +107,45 @@ docker pull <image:tag>  ; download image
 docker history <image:tag>  ; get history of changes in the image
 ```
 
+Build
 ```
 docker image build -t <name:tag> .
 ```
 
+Clean images
 ```
 docker image prune -a  ; remove all unused images
 docker system prune    ; clean everything
+```
+
+### Persistent Data
+
+Volume - get unique location on the host
+
+Volume command in Dockerfile
+```
+VOLUME /path/inside/container
+```
+
+Volumes need manual deletion.
+
+```
+docker volume ls  ; list volumes
+```
+
+to give a readable name to the volume use `-v` flag
+```
+run -v <name:/path/to/volume>  ; and other params
+```
+
+### Bind mounting
+
+Maps a host file or directory to a container file or directory.
+
+Must be set at `container run`.
+
+```
+run -v /Some/local/path:/path/in/container
 ```
 
 ### Resources
