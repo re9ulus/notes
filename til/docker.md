@@ -148,6 +148,36 @@ Must be set at `container run`.
 run -v /Some/local/path:/path/in/container
 ```
 
+### Docker Compose
+
+Not a production-grade tool. But ideal for local development and tests.
+
+Two separate parts:
+- YAML formatted file [containers, networks, volumes]
+- CLI Tool `docker-compose`
+
+Basic `docker-compose.yml`
+```
+version '3'
+
+services:
+  proxy:
+    image: nginx:1.13
+    ports:
+      - '80:80'
+    volumes:
+      - /path/to/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+  web:
+    imaeg: httpd
+
+```
+
+Commands
+```
+docker-compose up    ; setup everything
+docker-compose down  ; stop all and remove
+```
+
 ### Resources
 
 [Docker mastery](https://www.udemy.com/course/docker-mastery/)
