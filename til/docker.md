@@ -178,6 +178,43 @@ docker-compose up    ; setup everything
 docker-compose down  ; stop all and remove
 ```
 
+Docker-compose can be used for complex Dockerfile builds
+```
+build:
+  context: .
+  dockerfile: nginx.Dockerfile
+```
+
+### Docker Swarm
+
+Swarm is disabled by default.
+Check swarm status.
+```
+docker info  ; and find line `Swarm: inactive`
+```
+
+Init swarm
+```
+docker swarm init
+```
+
+Keywords: `swarm`, `node`, `service`.
+
+Commands
+```
+; Info
+docker node ls
+docker service create alpine ping 8.8.8.8
+docker service ls
+docker service ps <NAME>  ; hare we can fine NODE component
+
+; Change number of replicas
+docker service update <CONTAINER_ID> --replicas 3
+
+; Remove service
+docker service rm <CONTAINER_ID>
+```
+
 ### Resources
 
 [Docker mastery](https://www.udemy.com/course/docker-mastery/)
