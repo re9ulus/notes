@@ -215,6 +215,15 @@ docker service update <CONTAINER_ID> --replicas 3
 docker service rm <CONTAINER_ID>
 ```
 
+### Docker Machine
+
+Create multiple VMs for experiments
+```
+docker-machine create node1
+docker-machine create node2
+docker-machine create node3
+```
+
 ### Resources
 
 [Docker mastery](https://www.udemy.com/course/docker-mastery/)
