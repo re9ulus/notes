@@ -189,3 +189,37 @@ std::thread::hardware_concurrencty();
 ```
 std::this_thread::get_id();
 ```
+
+### Синхронизация операций
+
+#### Condvar
+
+Для ожидания есть `std::conditional_variable` и `std::conditional_variable_any`. Первый класс работает только с `std::mutex`. Второй - с любым `mutex`-подобным классом.
+
+Пример
+```
+std::mutex mt;
+std::conditional_variable cond;
+
+// thread 1
+std::lock_guard<std::mutex> lock(mt);
+queue.push(data);
+cond.notify_one();
+
+// thread 2
+std::unique_lock<std::mutex> lock(mt);
+// Нужно передать lambda с ожидаемым условием
+cond.wait(
+    lock, [], {return !queue.empty();});
+```
+
+#### Future
+
+`future` бывает двух видов, неразделяемое `std::future<>` и разделяемое `std::shared_future<>`. Если ассоциированных с объектом данных нет, можно использовать `std::future<void>`.
+
+Пример
+```
+std::future<int> answer = std::await(find_answer);
+...
+answer.get();
+```
