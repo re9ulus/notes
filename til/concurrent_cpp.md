@@ -223,3 +223,7 @@ std::future<int> answer = std::await(find_answer);
 ...
 answer.get();
 ```
+
+#### Ассоциирование задачи с будущим результатом
+
+Можно использовать `std::packaged_task<>` и `std::promise`.
