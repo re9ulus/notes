@@ -36,3 +36,14 @@ bool CustomCMP(const MyType& lhs, const MyType& rhs) {
 }
 ```
 [link](https://en.cppreference.com/w/cpp/utility/tuple/tie)
+
+### Семантика указателей
+
+`unique_ptr` - единоличное владение
+`shared_ptr` - использование разными объектами
+`week_ptr` - наблюдение
+
+`week_ptr` не может бысть создан на сыром указателе, для создания нужно использовать `shared_ptr`. Обладает двумя полезными методами
+
+- `expired` - проверить жив ли объект, на который указывает указатель.
+- `lock` - продлить жизнь объекта (вернуть `shared_ptr`).
