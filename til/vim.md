@@ -43,6 +43,10 @@ Ctrl-O/Ctrl-I - Cycle through : jumps
 g; / g, - Cycle through :changes
 ```
 
+#### NerdTree
+
+Create new file: Press `m` to bring up NERDTree Filesystem Menu => Pressm `a` to add child node.
+
 
 #### Links
 Great talk: [Talk on going mouseless with Vim, Tmux, and Hotkeys](https://www.youtube.com/watch?v=E-ZbrtoSuzw)
