@@ -1,6 +1,8 @@
 ## Про LISP
 
-По мотивам [Practical Common Lisp](http://www.gigamonkeys.com/book/)  
+По мотивам:
+- [Practical Common Lisp](http://www.gigamonkeys.com/book/)  
+- [SICP](https://mitpress.mit.edu/sites/default/files/sicp/index.html)
 
 Hello-world
 ```
@@ -99,6 +101,17 @@ Keyword параметры
 ```
 
 ####  Переменные
+
+##### Локальные переменные
+
+Scheme позволяет объявлять локальные переменные с помощью `let`
+```
+(let ((var1 val1)
+      (var2 val2))
+     (do-something-with var1 var2))
+```
+
+##### Другое
 
 lisp поддерживает два типа переменных `lexical` и `dynamic`.
 
