@@ -31,6 +31,9 @@ n               ; next, шаг без захода в функцию
 
 si              ; step instruction, следующая инструкция с заходом в функции
 ni              ; next instruction, без захода
+
+x $rbp          ; print rbp register value
+x/32xw $rsp     ; print memory near rsp register      
 ```
 
 #### Time-travel debugging
