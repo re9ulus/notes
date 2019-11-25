@@ -34,6 +34,7 @@ ni              ; next instruction, без захода
 
 x $rbp          ; print rbp register value
 x/32xw $rsp     ; print memory near rsp register      
+x/s name    ; если бинарь был собран с отладочной информацией - вывести строку соответствующую переменной name
 ```
 
 #### Time-travel debugging
