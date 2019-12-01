@@ -43,6 +43,13 @@ Ctrl-O/Ctrl-I - Cycle through : jumps
 g; / g, - Cycle through :changes
 ```
 
+Select whole rows: Shift-V
+
+#### Folding
+To create fold - select text and press: z-f
+To open fold: z-o
+To close fold: z-c
+
 #### NerdTree
 
 Create new file: Press `m` to bring up NERDTree Filesystem Menu => Pressm `a` to add child node.
