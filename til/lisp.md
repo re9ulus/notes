@@ -49,6 +49,12 @@ Hello-world
 (defun + (&rest values) ...)
 ```
 
+В scheme список параметров можно передать после `.`.
+```
+(define (name x y . z) (<body>))
+(name 1 2 3 4 5 6)  ; x = 1; y = 2; z = (3 4 5 6)
+```
+
 Keyword параметры
 ```
 (defun foo (&key a b c) (list a b c))
