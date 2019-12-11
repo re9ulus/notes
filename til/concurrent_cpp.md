@@ -240,4 +240,19 @@ answer.get();
 
 Если часы ходят с постоянной частотой и не допускают подведения, то говорят что часы `стабильны`. Проверить стабильность часов можно используя атрибут `is_steady`. Часы `std::chrono::system_clock` **не стабильны**. Из за подведения более позднее обращение к `now()` может вернуть значение меньше, чем более раннее. Стабильные часы предствлены классом `std::chrono::steady_clock`. Наименьший возможный тактовый период можно получить используя `std::chrono::high_resolution_clock`.
 
-#### Интервалы
+Задать ожидание в течение интервала времени можно используя `std::chrono::duration<>`
+```
+std::future<int> f = std::async(some_task);
+// wait_for может вернуть: ready, timeout, deferred (отложена)
+if (f.wait_for(std::chrono::milliseconds(35)) == std::future_status::ready) {
+    do_something_with(f.get());
+}
+```
+
+Моменты времени представлены шаблоном `std::chrono::time_point<>`. Пример с хронометражом участков программы:
+```
+auto start = std::chrono::high_resolution_clock::now();
+do_something();
+auto stop = std::chrono::high_resolution_clock::now();
+std::cout << std::chrono::duration<double, std::chrono::seconds>(stop - start).count() << std::endl();
+```
