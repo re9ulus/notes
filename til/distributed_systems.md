@@ -47,3 +47,10 @@ Atomic broadcast (Totaly order broadcast)
 - Validity - если несбойный узел инициирует broadcast, то этот broadcast доставит сообщение на этот узел
 - Agreement - если несбойный узел получил сообщение, то все несбойные узлы получили это сообщение
 - Total Order - все получают сообщения в одном и том же порядке
+
+
+
+---
+Reading list:
+Consistency Models https://jepsen.io/consistency
+Strong consistency models https://aphyr.com/posts/313-strong-consistency-models
