@@ -66,7 +66,22 @@ FLP теорема.
 - f <= 1, возможно не более 1 сбоя
 То нельзя гарантировать выполнение всех свойств консенсуса. Т.е. если возможны отказы, то существует исполнение, в котором протокол не завершается. В любом алгоритме консенсуса обязательно будет live-lock.
 
+### Paxos
+[Leslie Lamport, 1990, Part Time Parliament]
+
+### Replicated Log
+- ViewStamp Replication (1988)
+- MultiPaxos
+- RAFT (2014)
+- ZAB (Zookeeper Atomic Broadcast, 2012)
+
+**Multipaxos**
+
+Решени проблем:
+- Exponential Time Decay
+- Leader Elaction, например каждый узел шлет heartbit остальным, узел со старшим id считает себя лидером
+
 ---
 Reading list:
-Consistency Models https://jepsen.io/consistency
-Strong consistency models https://aphyr.com/posts/313-strong-consistency-models
+- Consistency Models https://jepsen.io/consistency
+- Strong consistency models https://aphyr.com/posts/313-strong-consistency-models

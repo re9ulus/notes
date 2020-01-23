@@ -47,3 +47,47 @@ bool CustomCMP(const MyType& lhs, const MyType& rhs) {
 
 - `expired` - проверить жив ли объект, на который указывает указатель.
 - `lock` - продлить жизнь объекта (вернуть `shared_ptr`).
+
+### Компиляция C++ проекта
+
+На самом высоком уровне: Каждый `*.cpp` файл (`Translation unit`) компилируется отдельно, получается `*.o` (object file). Все объектные файлы собираются вместе и получается исполняемый файл, который можно запустить `./app`.
+
+- `*.cpp -> *.obj` - компиляция
+- собрать `*.obj` - линковка
+
+`*.h` файлы _никогда_ не подаются на вход компилятору, они используются `*.cpp` файлами.
+
+```
+; -c сгенерировать объектный файл
+g++ file.cpp -c  ; -> file.o
+; линковщику можно просто передать объектные файлы
+g++ file.o file2.o fileN.o -o run -> исполняемый ./run
+```
+
+### Pointer implementation example
+Позволяет ускорить сборку. Tradeoff - кадый вызов функции превращается в два вызова. С шаблонами все это не работает, т.к. реализация должна быть в `.h`.
+```
+// item.h
+class Item {
+public:
+    Item(std::string);
+    DoThing();
+    ~Item();  // Need to specify destructor because of incomplete type
+private:
+    class ItemImpl;
+    std::unique_ptr<ItemImpl> pimpl_;
+};
+
+// item.cpp
+Item::Item(std::string str) {
+    pimpl_ = std::make_unique<Item::ItemImpl>(std::move(str));
+}
+
+Item::DoThing() {
+    pimpl_->DoThing();
+}
+
+class Item::ItemImpl {};
+
+Item::~Item() {}
+```
