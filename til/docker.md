@@ -168,7 +168,7 @@ services:
     volumes:
       - /path/to/nginx.conf:/etc/nginx/conf.d/default.conf:ro
   web:
-    imaeg: httpd
+    image: httpd
 
 ```
 
