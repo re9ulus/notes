@@ -63,8 +63,8 @@ docker container stats  ; live performance stats
 
 ### Getting inside container
 ```
-docker container run -it  ; start new container interactively
-docker container exec -it  ; run command in existing container
+docker container run -it <image> <command> ; start new container interactively
+docker container exec -it <container> <command> ; run command in existing container
 ```
 
 ### Docker Networks
