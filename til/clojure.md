@@ -59,6 +59,15 @@ Every valid expression is `form`. Clojure `evaluates` every form to produce a va
 (def answer 42)
 ```
 
+`let` - binds names to values
+```clojure
+(let [prime 7]
+  prime)
+(let [x 2 y 4]
+  (+ x y))
+(let [[val & other] [1 2 3 4]
+  (other))  ; [2 3 4]
+```
 
 data-types
 ```clojure
@@ -76,6 +85,8 @@ data-types
 ;; use `get` to get value
 (get {a: 0 b: 1) a)
 ;; use `get-in` for nested maps
+;; use `assoc` to insert key
+(assoc {} :answer 42)
 
 ;; Keywords
 :like-this
@@ -163,4 +174,70 @@ Anonymous functions
 (#(* % 2) 3)  ; 6
 (map #(str "Hi, " %) ["World", "Harry"])
 (#(str %1 %2) "Super " "Hot")
+```
+
+Loop
+```clojure
+(loop [idx 0]
+  (println (str "Idx " idx))
+  (if (> idx 5)
+      (println "Done!")
+      (recur (inc idx))))
+```
+
+Regular Expression
+```clojure
+(re-find #"^sample" "sample test!")  ; sample
+(clojure.string/replace "Nice cat!" #"cat" "dog")  ; Nice dog!
+```
+
+Reduce
+```clojure
+(reduce + [1 2 3 4])  ; 10
+```
+
+### seq abstraction
+
+map
+```
+; one collection
+(map inc [1 2 3])
+
+; multiple collections
+(map str ['a' 'b' 'c'] ['A' 'B' 'C'])
+
+; use function as args
+(map #(% [1 2 3 4]) (func1 func2 func3))
+
+; use to get items from dict
+(map :code [{:name "russia" :code "ru"} {:name "england" :code "uk"}])
+```
+
+### namespaces
+`in-ns` - create namespace and switch to it
+```clojure
+(in-ns 'hello.world)
+```
+
+Access name from other namespace
+```clojure
+sample.namespace-name/name-i-was-looking-for
+```
+
+Import all names from other namespace with `refer`
+```clojure
+(in-ns 'my.data)  ; supports :only, :exclude, :rename
+(def book "Zen and the Art of Motorcycle Maintenance")
+(in-ns 'my.workspace)
+(clojure.core/refer 'my.data)
+book
+```
+
+Short namespace names with `alias`
+```clojure
+(in-ns 'my.data)
+(def book "Zen")
+(in-ns 'my.workspace)
+(alias 'd 'my.data)
+d/book
 ```
