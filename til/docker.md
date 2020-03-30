@@ -68,6 +68,17 @@ docker container exec -it <container> <command> ; run command in existing contai
 ```
 
 ### Docker Networks
+
+Get list of networks
+```
+docker network ls
+```
+
+Default docker networks are:
+- `None` - container is isolated and can not communicate with network.
+- `Host`
+- `Bridge` - default. Conainer get ip address and can communicate with other conainers.
+
 ```
 docker container port <container>  ; check open ports
 ```

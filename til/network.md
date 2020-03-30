@@ -14,7 +14,7 @@ localHttp.setPort(8888);
 - гарантий доставки нет
 - DNS работает поверх UDP
 
-### TPC
+### TCP
 - передает поток байт скрывая потери в сети
 - требует установки соединения
 - TCP соединение - `два` потока байт
@@ -38,3 +38,9 @@ nc -v $IP $PORT  # дополнительные логи
 ss -ltp  # показать слушающие (-l) tcp (-t) сокеты
 ss -l    # список открытых tcp соединений
 ```
+
+### Ip Protocol Stack
+- Application [Applications]
+- Transport [Reliable streams | Messages]
+- Network [Best-effort _global_ packet delivery]
+- Link [Best-effort _local_ packet delivery]

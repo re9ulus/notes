@@ -241,3 +241,41 @@ Short namespace names with `alias`
 (alias 'd 'my.data)
 d/book
 ```
+
+### Concurrent programming
+
+clojure concurrency is implemented over JVM threads
+
+`future` macros will start task on another thread
+```clojure
+(future (Thread/sleep 5000)
+    (println "Print after 5 seconds!"))
+```
+
+`future` value is the result of last expression in it's body. It can be accessed with _dereferencing_, use `deref` or `@`.
+
+```clojure
+(let [result (future (+ 1 1))]
+    (println "result : " @result))
+```
+
+Check if `future` is done running
+```clojure
+(realized? (future (Thread/sleep 1000)))
+```
+
+`delay` to define task withou having to execute it. And than `force` or `@` to execute it.
+```clojure
+(def delay-hello
+  (delay (let [message "hello"]
+    (println "Hello from first run!")
+    message)))
+(force delay-hello)
+```
+
+`promise` allow express expectation of result without having to define the task that should produce it. And than use `deliver` to deliver result.
+```clojure
+(def my-promise (promise))
+(deliver my-promise (+ 1 2))
+@my-promise
+```
