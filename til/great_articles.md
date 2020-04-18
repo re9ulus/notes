@@ -2,6 +2,10 @@
 
 [12 Factor Apps](https://12factor.net/)
 
+[dismissing-python-garbage-collection-at-instagram](https://instagram-engineering.com/dismissing-python-garbage-collection-at-instagram-4dca40b29172) Hot to turn off garbage collector in Python and increase performance
+
+[15 тривиальных фактов о правильной работе с протоколом HTTP](https://habr.com/ru/company/yandex/blog/265569/)
+
 ## Api Design
 [Best Practices for Designing a Pragmatic RESTful API](https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api)
 
