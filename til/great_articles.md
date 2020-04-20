@@ -8,6 +8,9 @@
 ### Python
 [Dismissing Python Garbage Collection at Instagram](https://instagram-engineering.com/dismissing-python-garbage-collection-at-instagram-4dca40b29172)
 
+### Golang
+[Унифицируй это: как Lamoda делает единообразными свои Go сервисы](https://habr.com/ru/company/lamoda/blog/495344/)
+
 ## Api Design
 [Best Practices for Designing a Pragmatic RESTful API](https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api)
 
