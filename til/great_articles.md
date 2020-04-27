@@ -22,6 +22,10 @@
 
 # Machine Learning
 
+## Neural Networks
+[Backpro by CS231n](https://cs231n.github.io/optimization-2/)
+[A Recipe for Training Neural Networks!](http://karpathy.github.io/2019/04/25/recipe/)
+
 ## Attentions
 [Attention? Attention!](https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html) Explain different types of attention, lot of links to papers
 
