@@ -8,6 +8,9 @@
 ### Python
 [Dismissing Python Garbage Collection at Instagram](https://instagram-engineering.com/dismissing-python-garbage-collection-at-instagram-4dca40b29172)
 
+#### Asyncio
+[asyncio: We Did It Wrong](https://www.roguelynn.com/words/asyncio-we-did-it-wrong/)
+
 ### Golang
 [Унифицируй это: как Lamoda делает единообразными свои Go сервисы](https://habr.com/ru/company/lamoda/blog/495344/)
 
