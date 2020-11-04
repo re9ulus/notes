@@ -64,13 +64,16 @@ numbers
 ```
 
 change visual mode toggle: `o` in visual mode
+```
+<C-r> 0 - insert from register 0
 
-`<C-r> 0` - insert from register 0
-`;` - jump to next (after `f`)
-`,` - jump to prev
-`g-v` - reselect visual selection
+; - jump to next (after `f`)
+, - jump to prev
 
-`:read !command` insert output from console command into current place
+g-v - reselect visual selection
+
+:read !command - insert output from console command into current place
+```
 
 #### Links
 Great talk: [Talk on going mouseless with Vim, Tmux, and Hotkeys](https://www.youtube.com/watch?v=E-ZbrtoSuzw)
