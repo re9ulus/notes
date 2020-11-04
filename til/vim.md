@@ -73,6 +73,8 @@ change visual mode toggle: `o` in visual mode
 g-v - reselect visual selection
 
 :read !command - insert output from console command into current place
+
+lcd - set working directory for current window
 ```
 
 #### Links
