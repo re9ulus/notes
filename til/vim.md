@@ -74,7 +74,8 @@ g-v - reselect visual selection
 
 :read !command - insert output from console command into current place
 
-lcd - set working directory for current window
+:cd %:p:h - set working directory to current file
+:lcd %:d:h - set working directory only for current window
 ```
 
 #### Links
